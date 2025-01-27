@@ -8,8 +8,8 @@ from pathlib import Path
 
 # Configuration
 SERVER_DIR = "/media/fat/remote_game_gallery"
-PID_FILE = "/media/fat/http_server.pid"
-LOG_FILE = "/media/fat/http_server.log"
+PID_FILE = "/media/fat/remote_game_gallery_server.pid"
+LOG_FILE = "/media/fat/remote_game_gallery_server.log"
 PORT = 8080
 STARTUP_SCRIPT = "/media/fat/linux/user-startup.sh"
 
