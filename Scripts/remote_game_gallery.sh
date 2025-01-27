@@ -7,9 +7,9 @@ import sys
 from pathlib import Path
 
 # Configuration
-SERVER_DIR = "/media/fat/remote_game_gallery/www"
-PID_FILE = "/media/fat/remote_game_gallery/http_server.pid"
-LOG_FILE = "/media/fat/remote_game_gallery/http_server.log"
+SERVER_DIR = "/media/fat/remote_game_gallery"
+PID_FILE = "/media/fat/http_server.pid"
+LOG_FILE = "/media/fat/http_server.log"
 PORT = 8080
 STARTUP_SCRIPT = "/media/fat/linux/user-startup.sh"
 
