@@ -18,9 +18,14 @@ jobs:
 
       - uses: actions/checkout@v4
 
+      # - name: Build Custom Database for MiSTer Downloader
+      #   run: set -o pipefail && curl --fail --location https://raw.githubusercontent.com/theypsilon/Downloader_DB-Template_MiSTer/main/.github/build_db.py | python3 -
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GITHUB_REPOSITORY: ${{ github.repository }}
+      #     DB_ID: remote_game_gallery
+
       - name: Build Custom Database for MiSTer Downloader
-        run: set -o pipefail && curl --fail --location https://raw.githubusercontent.com/theypsilon/Downloader_DB-Template_MiSTer/main/.github/build_db.py | python3 -
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          DB_ID: remote_game_gallery
+        uses: diegofigs/MiSTer-build-db@v1
+        with:
+          db-name: "remote-game-gallery"
