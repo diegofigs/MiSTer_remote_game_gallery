@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install apt-get utilities
-        run: sudo apt-get install detox sharutils
+      # - name: Install apt-get utilities
+      #   run: sudo apt-get install detox sharutils
 
       - uses: actions/checkout@v4
 
