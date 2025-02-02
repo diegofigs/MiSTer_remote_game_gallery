@@ -207,8 +207,10 @@ const App: React.FC = () => {
           throw new Error(`Index generation failed: ${resp.statusText}`);
         }
         setIndexReady(true);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
       }
     };
     generateIndex();
@@ -238,8 +240,10 @@ const App: React.FC = () => {
         }
         const data: SearchResponse = await resp.json();
         setGlobalResults(data.data || []);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
       } finally {
         setGlobalLoading(false);
       }
@@ -270,8 +274,10 @@ const App: React.FC = () => {
         }
         const data: SearchResponse = await resp.json();
         setGames(data.data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
       } finally {
         setLoadingGames(false);
       }
@@ -582,16 +588,14 @@ const GlobalSearchResults: React.FC<GlobalSearchResultsProps> = ({
         throw new Error(`Launch failed: ${resp.statusText}`);
       }
       console.log("Game launched:", game.path);
-    } catch (err: any) {
-      alert("Failed to launch: " + err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        alert("Failed to launch: " + err.message);
+      }
     }
   };
 
-  const handleKeyDown = (
-    e: KeyboardEvent<HTMLDivElement>,
-    game: GameEntry,
-    _: number,
-  ) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>, game: GameEntry) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       handleLaunchGame(game);
@@ -638,7 +642,7 @@ const GlobalSearchResults: React.FC<GlobalSearchResultsProps> = ({
               ref={(el) => (refs[idx] = el)}
               onClick={() => handleLaunchGame(game)}
               tabIndex={0}
-              onKeyDown={(e) => handleKeyDown(e, game, idx)}
+              onKeyDown={(e) => handleKeyDown(e, game)}
               className={`
                 cursor-pointer p-3 text-center outline-none
                 focus:ring-2 focus:ring-offset-2
@@ -738,9 +742,11 @@ const GamesView: React.FC<GamesViewProps> = ({
         throw new Error(`Launch failed: ${resp.statusText}`);
       }
       console.log("Game launched:", game.path);
-    } catch (err: any) {
-      console.error("Failed to launch:", err.message);
-      alert("Failed to launch game: " + err.message);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error("Failed to launch:", err.message);
+        alert("Failed to launch game: " + err.message);
+      }
     }
   };
 
