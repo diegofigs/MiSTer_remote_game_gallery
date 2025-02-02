@@ -16,6 +16,6 @@ The leanest, [remote](https://github.com/wizzomafizzo/mrext)-powered MiSTer web 
 The portal can be automatically updated with the MiSTer downloader script (and update_all). Add the following text to the `downloader.ini` file on your SD card:
 
 ```
-[favorites]
+[remote_game_gallery]
 db_url = https://raw.githubusercontent.com/diegofigs/MiSTer_remote_game_gallery/db/db.json.zip
 ```
