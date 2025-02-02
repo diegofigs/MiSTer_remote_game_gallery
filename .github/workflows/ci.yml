@@ -30,6 +30,12 @@ jobs:
           cache-dependency-path: ${{ env.appRoot }}/pnpm-lock.yaml
       - run: pnpm install
       - run: pnpm build
+      - run: cp -f dist/* ${{ github.workspace }}/remote_game_gallery
+      - name: Build DB
+        uses: diegofigs/MiSTer-build-db@v1
+        with:
+          db-name: "remote-game-gallery"
+          dryrun: true
   lint:
     runs-on: ubuntu-latest
     defaults:
