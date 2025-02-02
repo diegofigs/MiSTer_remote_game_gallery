@@ -6,8 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-permissions: write-all
-
 jobs:
   build_db:
     runs-on: ubuntu-latest
@@ -18,4 +16,4 @@ jobs:
       - name: Build Custom Database for MiSTer Downloader
         uses: diegofigs/MiSTer-build-db@v1
         with:
-          db-name: "remote-game-gallery"
+          db-name: "remote_game_gallery"
