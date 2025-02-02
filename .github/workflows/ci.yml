@@ -34,7 +34,7 @@ jobs:
       - name: Build DB
         uses: diegofigs/MiSTer-build-db@v1
         with:
-          db-name: "remote-game-gallery"
+          db-name: "remote_game_gallery"
           dryrun: true
   lint:
     runs-on: ubuntu-latest
