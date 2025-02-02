@@ -2,7 +2,7 @@
 
 The leanest, [remote](https://github.com/wizzomafizzo/mrext)-powered MiSTer web portal.
 
-[![CI](https://github.com/diegofigs/MiSTer_remote_game_gallery/actions/workflows/ci.yaml/badge.svg)](https://github.com/diegofigs/MiSTer_remote_game_gallery/actions/workflows/ci.yaml)
+[![CI](https://github.com/diegofigs/MiSTer_remote_game_gallery/actions/workflows/ci.yml/badge.svg)](https://github.com/diegofigs/MiSTer_remote_game_gallery/actions/workflows/ci.yml)
 
 ## Features
 
